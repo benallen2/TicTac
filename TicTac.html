@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"><!-- font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> <!-- bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- bootstrap -->
+	<link href='https://fonts.googleapis.com/css?family=Cuprum:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<title>Tic Tac Toe</title>
+	<link href="TicTac.css" rel="stylesheet" type="text/css">
+	<script src="TicTac.js" rel = "stylesheet" type="text/javascript"></script>
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="row">
+			<h1 class="title">Tic Tac Toe</h1>
+		</div>
+	</div>
+	<div class="center container">
+		<div class="row" id="topRow">
+			<div class="col-xs-2 col-centered box" id="topLeft"></div>
+			<div class="col-xs-2 col-centered box" id="topMid"></div>
+			<div class="col-xs-2 col-centered box" id="topRight"></div>
+		</div>
+		<div class="row" id="midRow">
+			<div class="col-xs-2 col-centered box" id="midLeft"></div>
+			<div class="col-xs-2 col-centered box" id="midMid"></div>
+			<div class="col-xs-2 col-centered box" id="midRight"></div>
+		</div>
+		<div class="row" id="botRow">
+			<div class="col-xs-2 col-centered box" id="botLeft"></div>
+			<div class="col-xs-2 col-centered box" id="botMid"></div>
+			<div class="col-xs-2 col-centered box" id="botRight"></div>
+		</div>
+	</div>
 
+	<div id="alert" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Choose a side:</h4>
+				</div>
+				<div class="modal-body">
+					<p>X's or O's?</p>
+					<button type="button" class="btn btn-info" id="xs" data-dismiss="modal">X</button>
+					<button type="button" class="btn btn-info" id="os" data-dismiss="modal">O</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
