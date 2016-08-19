@@ -46,23 +46,29 @@ function cpuWin(arr, sign){
 	{
 		console.log("cpu win");
 	}
+	else{
+		cpuLogic();
+	}
 }
 
 function cpuLogic(){
 	var cpuMove = Math.floor(Math.random() * 9);
 	cpuWin(cpuPlays, cpu);
+	checker();
+	function checker(){
 	if (allMoves.indexOf(cpuMove.toString()) < 0){
 		allMoves.push(cpuMove.toString())
 		cpuPlays[(cpuMove.toString())] = cpu;
 		$("#" + cpuMove.toString()).html(cpu);
 		$("#" + cpuMove.toString()).addClass("clicked");
-	}
-	else {
-			cpuMove = Math.floor(Math.random() * 9);
-		}
-}
 	
-
+	};
+		else {
+			cpuMove = Math.floor(Math.random() * 9);
+			checker();
+			}
+		};
+	};
 
 
 function clicks(){// pushes to array 
