@@ -1,10 +1,10 @@
-var allMoves = [];
+var allMoves = ["", "", "", "", "", "", "", "", "",];
 var plays = [];
 var cpuPlays = [];
 var clicked;
 var player = ""; 
 var cpu = "";
-var mM = document.getElementById("5");
+
 
 function startAlert (){
 	$("#alert").modal("show");
@@ -29,7 +29,7 @@ function checkWin(arr, sign){
 		arr[0] === sign && arr[4] === sign && arr[8] === sign ||//diagonal
 		arr[2] === sign && arr[4] === sign && arr[6] === sign)
 	{
-		console.log("win");
+		console.log("you win!");
 	}
 }
 
@@ -44,31 +44,11 @@ function cpuWin(arr, sign){
 		arr[0] === sign && arr[4] === sign && arr[8] === sign ||//diagonal
 		arr[2] === sign && arr[4] === sign && arr[6] === sign)
 	{
-		console.log("cpu win");
-	}
-	else{
-		cpuLogic();
+		console.log("cpu wins :(");
 	}
 }
 
-function cpuLogic(){
-	var cpuMove = Math.floor(Math.random() * 9);
-	cpuWin(cpuPlays, cpu);
-	checker();
-	function checker(){
-	if (allMoves.indexOf(cpuMove.toString()) < 0){
-		allMoves.push(cpuMove.toString())
-		cpuPlays[(cpuMove.toString())] = cpu;
-		$("#" + cpuMove.toString()).html(cpu);
-		$("#" + cpuMove.toString()).addClass("clicked");
-	
-	};
-		else {
-			cpuMove = Math.floor(Math.random() * 9);
-			checker();
-			}
-		};
-	};
+
 
 
 function clicks(){// pushes to array 
@@ -79,49 +59,54 @@ function clicks(){// pushes to array
 		var clickId = $(this).attr("id");
 		switch(clickId){
 			case "0":
-				allMoves.push(clickId);
+				allMoves[parseInt(clickId)] = clickId;
 				plays[clickId] = player;
 				$(this).html(player);
 				$(this).addClass("clicked");
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+				
 				break;	
 			case "1":
-			allMoves.push(clickId);	
+			allMoves[clickId] = clickId;
 				plays[clickId] = player;
 				$(this).html(player);
 				$(this).addClass("clicked");
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+			
 				break;	
 			case "2":
-			allMoves.push(clickId);
+			allMoves[clickId] = clickId;
 				plays[clickId] = player;
 				$(this).html(player);
 				$(this).addClass("clicked");
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+	
 				break;	
 			case "3":
-			allMoves.push(clickId);
+			allMoves[clickId] = clickId;
 				plays[clickId] = player;
 				$(this).html(player);
 				$(this).addClass("clicked");
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;	
 			case "4":
-			allMoves.push(clickId);
+			allMoves[clickId] = clickId;
 				plays[clickId] = player;
 				$(this).html(player);
 				$(this).addClass("clicked");
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;	
 			case "5":
 			allMoves.push(clickId);
@@ -131,6 +116,7 @@ function clicks(){// pushes to array
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;	
 			case "6":
 			allMoves.push(clickId);
@@ -140,6 +126,7 @@ function clicks(){// pushes to array
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;	
 			case "7":
 			allMoves.push(clickId);
@@ -149,6 +136,7 @@ function clicks(){// pushes to array
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;
 			case "8":
 			allMoves.push(clickId);
@@ -158,12 +146,27 @@ function clicks(){// pushes to array
 				checkWin(plays, player);
 				cpuWin(cpuPlays, cpu);
 				cpuLogic();
+
 				break;			
 		}
-		console.log(cpuPlays);
+		console.log(allMoves);
 	}
 }
 
+
+function cpuLogic(){
+
+	var cpuMove = Math.floor(Math.random() * 9);
+	if ($("#" + cpuMove).is(":empty")){
+		$("#" + cpuMove).addClass("clicked");
+		$("#" + cpuMove).html(cpu)
+	}
+	else {
+		cpuMove = Math.floor(Math.random() * 9);
+	}
+	console.log(cpuMove);
+
+};
 
 $(document).ready(function(){
 	startAlert();
