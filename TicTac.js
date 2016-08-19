@@ -11,7 +11,8 @@ var mR = document.getElementById("midRight");
 var bL = document.getElementById("botLeft");
 var bM = document.getElementById("botMid");
 var bR = document.getElementById("botRight");
-var $this = $(this);
+
+var wins = [1, 2, 3];
 
 function startAlert (){
 	$("#alert").modal("show");
@@ -32,19 +33,16 @@ function playerClicks(){
 }
 
 function logics(){
-	tL.onclick = function(){
+	tL.click(function(){
 		if (tL = ""){
 			tL.html(player);
 			mM.html(cpu);
 		}
-		else{
-			alert("Box Filled - Pick Again");
-		}
-	}
-	
+	});
 }
 
 $(document).ready(function(){
+
 	startAlert();
 	playerClicks();
 	logics();
